@@ -344,6 +344,7 @@ export const User = {
   properties: {
     id: { type: 'string' },
     // property
+
     favoriteRecipes: { type: 'string' },
 
     email: { type: 'string', format: 'email' },
@@ -355,6 +356,7 @@ export const User = {
   example: {
     id: '5ebac534954b54139806c112',
     // property example
+
     favoriteRecipesIds: [
       '673c40cd59e293827f79e398',
       '673c40cd59e293827f79e399',
@@ -371,6 +373,7 @@ export const createUser = {
   type: 'object',
   properties: {
     // create property
+
     favoriteRecipes: { type: 'string' },
 
     name: { type: 'string' },
@@ -381,6 +384,7 @@ export const createUser = {
   },
   example: {
     // create property example
+
     favoriteRecipesIds: [
       '673c40cd59e293827f79e398',
       '673c40cd59e293827f79e399',
@@ -398,6 +402,7 @@ export const updateMe = {
   type: 'object',
   properties: {
     // update property
+
     favoriteRecipes: { type: 'string' },
 
     name: { type: 'string' },
@@ -406,6 +411,7 @@ export const updateMe = {
   },
   example: {
     // update property example
+
     favoriteRecipesIds: [
       '673c40cd59e293827f79e398',
       '673c40cd59e293827f79e399',

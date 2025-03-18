@@ -4,9 +4,9 @@ import { omit } from 'lodash';
 export interface ICategurie extends MongooseDocument {
   id: string;
   // <creating-property-interface />
-  image: string;
-
   descreption: string;
+
+  image: string;
 
   name: string;
 
@@ -18,12 +18,13 @@ export interface ICategurie extends MongooseDocument {
 const categurieSchema: Schema = new Schema<ICategurie>(
   {
     // <creating-property-schema />
-    image: {
-      type: String,
-    },
     descreption: {
       type: String,
     },
+    image: {
+      type: String,
+    },
+
     name: {
       type: String,
       index: 'text',

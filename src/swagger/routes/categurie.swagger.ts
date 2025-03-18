@@ -212,16 +212,17 @@ export const Categurie = {
   properties: {
     id: { type: 'string' },
     // property
-    image: { type: 'string' },
     descreption: { type: 'string' },
+    image: { type: 'string' },
+
     name: { type: 'string' },
   },
   example: {
     _id: '5ebac534954b54139806c112',
     // property example
-    image: 'url',
+    descreption: 'gg',
 
-    descreption: 'sweet',
+    image: 'rr',
 
     name: 'sweet',
 
@@ -233,15 +234,16 @@ export const createCategurie = {
   type: 'object',
   properties: {
     // create property
-    image: { type: 'string' },
     descreption: { type: 'string' },
+    image: { type: 'string' },
+
     name: { type: 'string' },
   },
   example: {
     // create property example
-    image: 'url',
+    descreption: 'gg',
 
-    descreption: 'sweet',
+    image: 'rr',
 
     name: 'sweet',
 
@@ -250,6 +252,10 @@ export const createCategurie = {
   },
   required: [
     // required property
+    'descreption',
+
+    'image',
+
     'image',
 
     'descreption',
@@ -261,15 +267,16 @@ export const updateCategurie = {
   type: 'object',
   properties: {
     // update property
-    image: { type: 'string' },
     descreption: { type: 'string' },
+    image: { type: 'string' },
+
     name: { type: 'string' },
   },
   example: {
     // update property example
-    image: 'url',
+    descreption: 'gg',
 
-    descreption: 'sweet',
+    image: 'rr',
 
     name: 'sweet',
 

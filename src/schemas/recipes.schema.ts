@@ -32,6 +32,17 @@ export type IRecipesAllSchema = TypeOf<typeof recipesAllSchema>;
 
 const recipesCreateSchema = object({
   // <creating-property-create-schema />
+
+  description: z.string(),
+
+  instructions: z.string(),
+
+  preparationTime: z.string(),
+
+  cookingTime: z.string(),
+
+  srevings: z.string(),
+
   categId: zodObjectId,
 
   ingredients: z.array(ingredientsCreateSchema),
@@ -43,6 +54,17 @@ export type IRecipesCreateSchema = TypeOf<typeof recipesCreateSchema>;
 
 const recipesUpdateSchema = object({
   // <creating-property-update-schema />
+
+  description: z.string().optional(),
+
+  instructions: z.string().optional(),
+
+  preparationTime: z.string().optional(),
+
+  cookingTime: z.string().optional(),
+
+  srevings: z.string().optional(),
+
   categId: zodObjectId.optional(),
 
   ingredients: z.array(ingredientsUpdateSchema),

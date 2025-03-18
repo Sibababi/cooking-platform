@@ -219,6 +219,7 @@ export const signUp = {
   ],
   properties: {
     //  property signup
+
     favoriteRecipes: { type: 'string' },
 
     name: { type: 'string' },
@@ -227,6 +228,7 @@ export const signUp = {
   },
   example: {
     // create property example
+
     favoriteRecipesIds: [
       '673c40cd59e293827f79e398',
       '673c40cd59e293827f79e399',

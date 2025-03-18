@@ -18,20 +18,22 @@ export interface IIngredient extends MongooseDocument {
 export interface IRecipes extends MongooseDocument {
   id: string;
   // <creating-property-interface />
+  description: string;
+
+  instructions: string;
+
+  preparationTime: string;
+
+  cookingTime: string;
+
+  srevings: string;
+
   categId: ICategurie['_id'];
   categ: ICategurie;
 
   ingredient: IIngredient[];
 
-  servings: number;
 
-  cookingTime: string;
-
-  preparationTime: string;
-
-  instructions: string;
-
-  description: string;
 
   title: string;
 
@@ -43,6 +45,21 @@ export interface IRecipes extends MongooseDocument {
 const recipesSchema: Schema = new Schema<IRecipes>(
   {
     // <creating-property-schema />
+    description: {
+      type: String,
+    },
+    instructions: {
+      type: String,
+    },
+    preparationTime: {
+      type: String,
+    },
+    cookingTime: {
+      type: String,
+    },
+    srevings: {
+      type: String,
+    },
     categId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Categurie',
@@ -67,21 +84,7 @@ const recipesSchema: Schema = new Schema<IRecipes>(
       },
     ],
 
-    servings: {
-      type: Number,
-    },
-    cookingTime: {
-      type: String,
-    },
-    preparationTime: {
-      type: String,
-    },
-    instructions: {
-      type: String,
-    },
-    description: {
-      type: String,
-    },
+   
     title: [
       {
         type: String,

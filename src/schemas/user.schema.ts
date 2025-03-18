@@ -1,11 +1,7 @@
-
-      
-      
 import { UserStatus } from './../utils/enum';
 import { z, TypeOf } from 'zod';
 import { zodObjectId } from '../middlewares/validator';
 import { orderColumn, orderDirection, page, pageSize } from './common';
-
 
 const userIdSchema = z.object({
   id: zodObjectId,
@@ -16,8 +12,8 @@ export type IUserIdSchema = TypeOf<typeof userIdSchema>;
 const userUpdateSchema = z
   .object({
     // <creating-property-update-schema />
-          favoriteRecipesIds: zodObjectId.array().optional(),
-      
+    favoriteRecipesIds: zodObjectId.array().optional(),
+
     status: z.nativeEnum(UserStatus).optional(),
     name: z.string().optional(),
     email: z.string().email().optional(),

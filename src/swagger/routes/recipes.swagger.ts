@@ -212,6 +212,11 @@ export const Recipes = {
   properties: {
     id: { type: 'string' },
     // property
+    description: { type: 'string' },
+    instructions: { type: 'string' },
+    preparationTime: { type: 'string' },
+    cookingTime: { type: 'string' },
+    srevings: { type: 'string' },
     categ: { type: 'string' },
     ingredients: {
       type: 'array',
@@ -226,15 +231,16 @@ export const Recipes = {
       },
     },
     servings: { type: 'number' },
-    cookingTime: { type: 'string' },
-    preparationTime: { type: 'string' },
-    instructions: { type: 'string' },
-    description: { type: 'string' },
+   
     title: { type: 'array', items: { type: 'string' } },
   },
   example: {
     _id: '5ebac534954b54139806c112',
     // property example
+  
+
+    srevings: 'dd',
+
     categId: '673c40cd59e293827f79e398',
 
     ingredients: [
@@ -269,6 +275,11 @@ export const createRecipes = {
   type: 'object',
   properties: {
     // create property
+    description: { type: 'string' },
+    instructions: { type: 'string' },
+    preparationTime: { type: 'string' },
+    cookingTime: { type: 'string' },
+    srevings: { type: 'string' },
     categ: { type: 'string' },
     ingredients: {
       type: 'array',
@@ -282,15 +293,15 @@ export const createRecipes = {
         },
       },
     },
-    servings: { type: 'number' },
-    cookingTime: { type: 'string' },
-    preparationTime: { type: 'string' },
-    instructions: { type: 'string' },
-    description: { type: 'string' },
+   
     title: { type: 'array', items: { type: 'string' } },
   },
   example: {
     // create property example
+    
+
+    srevings: 'dd',
+
     categId: '673c40cd59e293827f79e398',
 
     ingredients: [
@@ -322,6 +333,16 @@ export const createRecipes = {
   },
   required: [
     // required property
+    'description',
+
+    'instructions',
+
+    'preparationTime',
+
+    'cookingTime',
+
+    'srevings',
+
     'categ',
 
     'ingredients.quantity',
@@ -339,6 +360,11 @@ export const updateRecipes = {
   type: 'object',
   properties: {
     // update property
+    description: { type: 'string' },
+    instructions: { type: 'string' },
+    preparationTime: { type: 'string' },
+    cookingTime: { type: 'string' },
+    srevings: { type: 'string' },
     categ: { type: 'string' },
     ingredients: {
       type: 'array',
@@ -353,14 +379,15 @@ export const updateRecipes = {
       },
     },
     servings: { type: 'number' },
-    cookingTime: { type: 'string' },
-    preparationTime: { type: 'string' },
-    instructions: { type: 'string' },
-    description: { type: 'string' },
+  
     title: { type: 'array', items: { type: 'string' } },
   },
   example: {
     // update property example
+    
+
+    srevings: 'dd',
+
     categId: '673c40cd59e293827f79e398',
 
     ingredients: [

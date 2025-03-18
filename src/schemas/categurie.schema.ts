@@ -21,6 +21,10 @@ export type ICategurieAllSchema = TypeOf<typeof categurieAllSchema>;
 const categurieCreateSchema = object({
   // <creating-property-create-schema />
 
+  descreption: z.string(),
+
+  image: z.string(),
+
   name: z.string(),
 }).strict();
 
@@ -28,6 +32,10 @@ export type ICategurieCreateSchema = TypeOf<typeof categurieCreateSchema>;
 
 const categurieUpdateSchema = object({
   // <creating-property-update-schema />
+
+  descreption: z.string().optional(),
+
+  image: z.string().optional(),
 
   name: z.string().optional(),
 }).strict();
