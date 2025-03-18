@@ -55,7 +55,7 @@ export class CategurieRoutes {
     // UPDATE CATEGURIE BY ID
     this.router.patch(
       '/:id',
-      restrict(),
+      restrict(ADMIN),
       authorizationMiddleware.authorization,
       validator({
         params: categurieSchema.categurieId,
@@ -67,7 +67,7 @@ export class CategurieRoutes {
     // DELETE CATEGURIE BY ID
     this.router.delete(
       '/:id',
-      restrict(),
+      restrict(ADMIN),
       authorizationMiddleware.authorization,
       validator({ params: categurieSchema.categurieId }),
       categurieController.deleteCategurie,

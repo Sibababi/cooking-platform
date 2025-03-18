@@ -46,7 +46,7 @@ export class IngredientsRoutes {
     // CREATE INGREDIENTS
     this.router.post(
       '/',
-      restrict(),
+      restrict(ADMIN),
       authorizationMiddleware.authorization,
       validator({ body: ingredientsSchema.ingredientsCreate }),
       ingredientsController.createIngredients,
@@ -55,7 +55,7 @@ export class IngredientsRoutes {
     // UPDATE INGREDIENTS BY ID
     this.router.patch(
       '/:id',
-      restrict(),
+      restrict(ADMIN),
       authorizationMiddleware.authorization,
       validator({
         params: ingredientsSchema.ingredientsId,
@@ -67,7 +67,7 @@ export class IngredientsRoutes {
     // DELETE INGREDIENTS BY ID
     this.router.delete(
       '/:id',
-      restrict(),
+      restrict(ADMIN),
       authorizationMiddleware.authorization,
       validator({ params: ingredientsSchema.ingredientsId }),
       ingredientsController.deleteIngredients,

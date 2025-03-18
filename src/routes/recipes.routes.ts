@@ -55,7 +55,7 @@ export class RecipesRoutes {
     // UPDATE RECIPES BY ID
     this.router.patch(
       '/:id',
-      restrict(),
+      restrict(ADMIN),
       authorizationMiddleware.authorization,
       validator({
         params: recipesSchema.recipesId,
@@ -67,7 +67,7 @@ export class RecipesRoutes {
     // DELETE RECIPES BY ID
     this.router.delete(
       '/:id',
-      restrict(),
+      restrict(ADMIN),
       authorizationMiddleware.authorization,
       validator({ params: recipesSchema.recipesId }),
       recipesController.deleteRecipes,
