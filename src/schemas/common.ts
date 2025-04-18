@@ -23,7 +23,7 @@ export const uuid = z.string().uuid();
 export const page = numericId
   .optional()
   .default('1')
-  .refine((number) => number >= 0);
+  .refine((number) => number >= 1);
 
 export const pageSize = numericId
   .optional()

@@ -33,7 +33,7 @@ export class IngredientsRepository extends BaseRepository<IIngredients> {
         [order.column]: order.direction === OrderDirection.asc ? 1 : -1,
       })
       .limit(pagination.pageSize)
-      .skip(pagination.page * pagination.pageSize);
+      .skip(pagination.pageSize * (pagination.page - 1));
 
     return { results, total };
   }

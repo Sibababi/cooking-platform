@@ -212,6 +212,18 @@ export const Recipes = {
   properties: {
     id: { type: 'string' },
     // property
+    ing: {
+      type: 'array',
+      items: {
+        type: 'object',
+        properties: {
+          //  properties ing
+          ingr: { type: 'string' },
+
+          count: { type: 'number' },
+        },
+      },
+    },
     description: { type: 'string' },
     instructions: { type: 'string' },
     preparationTime: { type: 'string' },
@@ -231,13 +243,20 @@ export const Recipes = {
       },
     },
     servings: { type: 'number' },
-   
+
     title: { type: 'array', items: { type: 'string' } },
   },
   example: {
     _id: '5ebac534954b54139806c112',
     // property example
-  
+    ing: [
+      {
+        // property example ing
+        ingrId: '673c40cd59e293827f79e398',
+
+        count: 5,
+      },
+    ],
 
     srevings: 'dd',
 
@@ -275,6 +294,18 @@ export const createRecipes = {
   type: 'object',
   properties: {
     // create property
+    ing: {
+      type: 'array',
+      items: {
+        type: 'object',
+        properties: {
+          //  create  properties ing
+          ingr: { type: 'string' },
+
+          count: { type: 'number' },
+        },
+      },
+    },
     description: { type: 'string' },
     instructions: { type: 'string' },
     preparationTime: { type: 'string' },
@@ -293,12 +324,19 @@ export const createRecipes = {
         },
       },
     },
-   
+
     title: { type: 'array', items: { type: 'string' } },
   },
   example: {
     // create property example
-    
+    ing: [
+      {
+        // create property example ing
+        ingrId: '673c40cd59e293827f79e398',
+
+        count: 5,
+      },
+    ],
 
     srevings: 'dd',
 
@@ -333,6 +371,9 @@ export const createRecipes = {
   },
   required: [
     // required property
+
+    'ing.count',
+
     'description',
 
     'instructions',
@@ -360,6 +401,18 @@ export const updateRecipes = {
   type: 'object',
   properties: {
     // update property
+    ing: {
+      type: 'array',
+      items: {
+        type: 'object',
+        properties: {
+          //  update properties ing
+          ingr: { type: 'string' },
+
+          count: { type: 'number' },
+        },
+      },
+    },
     description: { type: 'string' },
     instructions: { type: 'string' },
     preparationTime: { type: 'string' },
@@ -379,12 +432,19 @@ export const updateRecipes = {
       },
     },
     servings: { type: 'number' },
-  
+
     title: { type: 'array', items: { type: 'string' } },
   },
   example: {
     // update property example
-    
+    ing: [
+      {
+        // update property example ing
+        ingrId: '673c40cd59e293827f79e398',
+
+        count: 5,
+      },
+    ],
 
     srevings: 'dd',
 

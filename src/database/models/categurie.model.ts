@@ -39,7 +39,7 @@ const categurieSchema: Schema = new Schema<ICategurie>(
     timestamps: true,
     toJSON: {
       virtuals: true,
-      transform: (_, ret) => omit(['deletedAt', '__v', '_id'], ret),
+      transform: (_, ret) => omit( ret , ['deletedAt', '__v', '_id'],),
     },
   },
 );

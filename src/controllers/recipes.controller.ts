@@ -27,7 +27,7 @@ export class RecipesController {
     ): Promise<void> => {
       const options: RecipesFindOptions = {
         filter: {
-          search: req.valid.query.search,
+          
         },
         order: defaultOrderParams(
           req.valid.query.orderColumn,
@@ -37,6 +37,7 @@ export class RecipesController {
           req.valid.query.page,
           req.valid.query.pageSize,
         ),
+        search: req.valid.query.search,
       };
       const recipes = await recipesRepository.findForAdmin(options);
 
@@ -49,13 +50,14 @@ export class RecipesController {
     async (
       req: ParsedRequest<void, void, IRecipesIdSchema>,
       res: Response,
-    ): Promise<void> => {
-      const recipes = needRecord(
+      next: NextFunction,
+    ) => {
+      const recipe = needRecord(
         await recipesRepository.findById(req.valid.params.id),
         new NotFoundError('Recipes not found'),
       );
-
-      res.ok({ message: 'success', data: recipes });
+     
+      res.ok({ message: 'success', data: recipe });
     },
   );
 

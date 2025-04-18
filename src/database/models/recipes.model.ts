@@ -7,17 +7,19 @@ import mongoose from 'mongoose';
 import { model, Schema, type Document as MongooseDocument } from 'mongoose';
 import { omit } from 'lodash';
 
-export interface IIngredient extends MongooseDocument {
-  // <creating-property-interface-ingredients />
-  ingredientIdIds: Array<IIngredients['_id']>;
-  ingredientId: Array<IIngredients>;
+export interface IIng extends MongooseDocument {
+  // <creating-property-interface-ing />
+  ingrId: IIngredients['_id'];
+  ingr: IIngredients;
 
-  quantity: string;
+  count: number;
 }
 
 export interface IRecipes extends MongooseDocument {
   id: string;
   // <creating-property-interface />
+  ing: IIng[];
+
   description: string;
 
   instructions: string;
@@ -31,10 +33,6 @@ export interface IRecipes extends MongooseDocument {
   categId: ICategurie['_id'];
   categ: ICategurie;
 
-  ingredient: IIngredient[];
-
-
-
   title: string;
 
   createdAt: Date;
@@ -45,6 +43,20 @@ export interface IRecipes extends MongooseDocument {
 const recipesSchema: Schema = new Schema<IRecipes>(
   {
     // <creating-property-schema />
+    ing: [
+      {
+        // <creating-property-object-ing />
+        ingrId: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'Ingredients',
+        },
+
+        count: {
+          type: Number,
+        },
+      },
+    ],
+
     description: {
       type: String,
     },
@@ -65,32 +77,9 @@ const recipesSchema: Schema = new Schema<IRecipes>(
       ref: 'Categurie',
     },
 
-    ingredient: [
-      {
-        // <creating-property-object-ingredients />
-        ingredientIdIds: {
-          type: [
-            {
-              type: mongoose.Schema.Types.ObjectId,
-              ref: 'Ingredients',
-              default: [],
-            },
-          ],
-        },
-
-        quantity: {
-          type: String,
-        },
-      },
-    ],
-
-   
-    title: [
-      {
-        type: String,
-        index: 'text',
-      },
-    ],
+    title: {
+      type: String,
+    },
 
     deletedAt: {
       type: Date,
@@ -102,7 +91,7 @@ const recipesSchema: Schema = new Schema<IRecipes>(
     timestamps: true,
     toJSON: {
       virtuals: true,
-      transform: (_, ret) => omit(['deletedAt', '__v', '_id'], ret),
+      transform: (_, ret) => omit(ret, ['deletedAt', '__v', '_id']),
     },
   },
 );

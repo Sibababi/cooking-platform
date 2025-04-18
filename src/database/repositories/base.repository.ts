@@ -54,6 +54,14 @@ export class BaseRepository<T extends MongooseDocument> {
   }
 
   async deleteById(id: string): Promise<T | null> {
-    return await this.patchById(id, { deletedAt: new Date() });
+    const result = await this.model.deleteOne({ _id: id });
+    
+    if (result.deletedCount === 0) {
+      return null; // لم يتم العثور على مستند لحذفه
+    }
+  
+    // يمكنك إرجاع كائن يتضمن معلومات عن الحذف
+    return { _id: id } as unknown as T; // تحويل النوع هنا
   }
+  
 }

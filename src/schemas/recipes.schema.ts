@@ -14,6 +14,22 @@ const ingredientsUpdateSchema = object({
 });
 export type IIngredientsUpdateSchema = TypeOf<typeof ingredientsUpdateSchema>;
 
+const ingCreateSchema = object({
+  // <creating-property-create-schema-ing />
+  ingrId: zodObjectId,
+
+  count: z.number(),
+});
+export type IIngCreateSchema = TypeOf<typeof ingCreateSchema>;
+
+const ingUpdateSchema = object({
+  // <creating-property-update-schema-ing />
+  ingrId: zodObjectId.optional(),
+
+  count: z.number(),
+});
+export type IIngUpdateSchema = TypeOf<typeof ingUpdateSchema>;
+
 const recipesIdSchema = object({
   id: zodObjectId,
 });
@@ -32,6 +48,7 @@ export type IRecipesAllSchema = TypeOf<typeof recipesAllSchema>;
 
 const recipesCreateSchema = object({
   // <creating-property-create-schema />
+  ing: z.array(ingCreateSchema),
 
   description: z.string(),
 
@@ -45,15 +62,15 @@ const recipesCreateSchema = object({
 
   categId: zodObjectId,
 
-  ingredients: z.array(ingredientsCreateSchema),
 
-  title: z.array(z.string()).optional().nullable(),
+  title: z.string(),
 }).strict();
 
 export type IRecipesCreateSchema = TypeOf<typeof recipesCreateSchema>;
 
 const recipesUpdateSchema = object({
   // <creating-property-update-schema />
+  ing: z.array(ingUpdateSchema),
 
   description: z.string().optional(),
 

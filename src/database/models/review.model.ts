@@ -54,7 +54,7 @@ const reviewSchema: Schema = new Schema<IReview>(
     timestamps: true,
     toJSON: {
       virtuals: true,
-      transform: (_, ret) => omit(['deletedAt', '__v', '_id'], ret),
+      transform: (_, ret) => omit( ret, ['deletedAt', '__v', '_id']),
     },
   },
 );

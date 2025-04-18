@@ -54,6 +54,7 @@ export class CategurieController {
         await categurieRepository.findById(req.valid.params.id),
         new NotFoundError('Categurie not found'),
       );
+      console.log(categurie);
 
       res.ok({ message: 'success', data: categurie });
     },

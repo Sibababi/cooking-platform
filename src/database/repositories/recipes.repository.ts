@@ -22,7 +22,12 @@ export class RecipesRepository extends BaseRepository<IRecipes> {
 
     const query: FilterQuery<IRecipes> = { deletedAt: null };
     if (search) {
-      query.$or = [];
+      query.$or = [
+        
+          {  description: { $regex: new RegExp(search, 'i') } },
+          {  cookingTime: { $regex: new RegExp(search, 'i') } },
+        
+      ];
     }
 
     const total = await this.model.where(query).countDocuments();
@@ -32,9 +37,13 @@ export class RecipesRepository extends BaseRepository<IRecipes> {
         [order.column]: order.direction === OrderDirection.asc ? 1 : -1,
       })
       .limit(pagination.pageSize)
-      .skip(pagination.page * pagination.pageSize);
+      .skip(pagination.pageSize * (pagination.page - 1));
 
     return { results, total };
+  }
+
+  async findById(id: string): Promise<IRecipes | null> {
+    return await this.model.findById(id);
   }
 }
 
